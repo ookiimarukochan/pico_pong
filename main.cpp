@@ -113,11 +113,11 @@ void move_paddle_one()
 void move_paddle_two()
 {
   paddle_two.speed = rand() % 5;
-  if (paddle_two.y < ball.position.y)
+  if ((paddle_two.y + (paddle_height / 2))< ball.position.y)
   {
     paddle_two.y = paddle_two.y + paddle_two.speed;
   }
-  if (paddle_two.y > ball.position.y)
+  if ((paddle_two.y + (paddle_height / 2)) > ball.position.y)
   {
     paddle_two.y = paddle_two.y - paddle_two.speed;
   }
@@ -135,7 +135,7 @@ void ball_bounce(int paddle_y)
     difference = difference - (paddle_height / 2);
     difference = difference * -1;
   }
-  difference = difference / 8;
+  difference = difference / 10;
   ball.movement.y += difference;
   ball.movement.x = flip_direction(ball.movement.x);
   ball.movement.y = flip_direction(ball.movement.y);
